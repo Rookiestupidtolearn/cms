@@ -1,4 +1,4 @@
-package com.jspxcms.ext.repository.impl;
+package com.jspxcms.repository.impl;
 
 import com.jspxcms.ext.repository.plus.QuestionOptionDaoPlus;
 

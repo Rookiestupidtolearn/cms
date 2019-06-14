@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+[@MyList;pagedList]
+<h1>[#list pagedList as type]
+    ${type}
+[/#list]
+</h1>
+[/@MyList]
+
+[@GuestbookTypeList;pagedList]
+<h1>[#list pagedList as type]
+    ${type.name}
+    [/#list]
+</h1>
+[/@GuestbookTypeList]
+
+
+</body>
+</html>

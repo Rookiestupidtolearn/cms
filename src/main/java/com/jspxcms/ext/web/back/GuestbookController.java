@@ -54,7 +54,7 @@ public class GuestbookController {
 	public String list(
 			@PageableDefault(sort = "id", direction = Direction.DESC) Pageable pageable,
 			HttpServletRequest request, org.springframework.ui.Model modelMap) {
-		Integer siteId = Context.getCurrentSiteId();
+		Integer siteId = Context.getCurrentSiteId();//获取站点信息
 		Map<String, String[]> params = Servlets.getParamValuesMap(request,
 				Constants.SEARCH_PREFIX);
 		Page<Guestbook> pagedList = service.findAll(params, pageable, siteId);

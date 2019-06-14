@@ -12,7 +12,7 @@ import freemarker.template.TemplateModel;
 /**
  * TagListDirective
  * 
- * @author liufang
+ * @author liufang@r
  * 
  */
 public class TagListDirective extends AbstractTagListPageDirective implements

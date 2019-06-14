@@ -275,47 +275,21 @@
                     <thead id="sortHead" pagesort="<c:out value='${page_sort[0]}' />" pagedir="${page_sort_dir[0]}" pageurl="list.do?page_sort={0}&page_sort_dir={1}&queryNodeId=${queryNodeId}&queryNodeType=${queryNodeType}&queryInfoPermType=${queryInfoPermType}&queryStatus=${queryStatus}&${searchstringnosort}">
                     <tr class="ls_table_th">
                         <th width="25"><input type="checkbox" onclick="Cms.check('ids',this.checked);"/></th>
-                        <th width="180"><s:message code="operate"/></th>
+
                         <th width="30" class="ls-th-sort"><span class="ls-sort" pagesort="id">ID</span></th>
                         <th class="ls-th-sort"><span class="ls-sort" pagesort="detail.title"><s:message code="info.title"/></span></th>
                         <th class="ls-th-sort"><span class="ls-sort" pagesort="publishDate"><s:message code="info.publishDate"/></span></th>
                         <th class="ls-th-sort"><span class="ls-sort" pagesort="priority"><s:message code="info.priority"/></span></th>
                         <th class="ls-th-sort"><span class="ls-sort" pagesort="views"><s:message code="info.views"/></span></th>
                         <th class="ls-th-sort"><span class="ls-sort" pagesort="status"><s:message code="info.status"/></span></th>
+                        <th width="180"><s:message code="operate"/></th>
                     </tr>
                     </thead>
                     <tbody>
                     <c:forEach var="bean" varStatus="status" items="${pagedList.content}">
                         <tr<shiro:hasPermission name="core:info:edit"> ondblclick="location.href=$('#edit_opt_${bean.id}').attr('href');"</shiro:hasPermission>>
                             <td><input type="checkbox" name="ids" value="${bean.id}"/></td>
-                            <td align="center">
-                                <shiro:hasPermission name="core:info:copy">
-                                    <a id="copy_opt_${bean.id}" href="create.do?id=${bean.id}&queryNodeId=${queryNodeId}&queryNodeType=${queryNodeType}&queryInfoPermType=${queryInfoPermType}&queryStatus=${queryStatus}&${searchstring}" class="ls-opt"><s:message code="copy"/></a>
-                                </shiro:hasPermission>
-                                <shiro:hasPermission name="core:info:edit">
-                                    <a id="edit_opt_${bean.id}" href="edit.do?id=${bean.id}&queryNodeId=${queryNodeId}&queryNodeType=${queryNodeType}&queryInfoPermType=${queryInfoPermType}&queryStatus=${queryStatus}&position=${pagedList.number*pagedList.size+status.index}&${searchstring}" class="ls-opt"><s:message code="edit"/></a>
-                                </shiro:hasPermission>
-                                <shiro:hasPermission name="core:info:logic_delete">
-                                    <c:choose>
-                                        <c:when test="${bean.auditPerm}">
-                                            <a href="logic_delete.do?ids=${bean.id}&queryNodeId=${queryNodeId}&queryNodeType=${queryNodeType}&queryInfoPermType=${queryInfoPermType}&queryStatus=${queryStatus}&${searchstring}" onclick="return confirmDelete();" class="ls-opt"><s:message code="delete"/></a>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <span class="disabled"><s:message code="delete"/></span>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </shiro:hasPermission>
-                                <shiro:hasPermission name="core:info:delete">
-                                    <c:choose>
-                                        <c:when test="${bean.auditPerm}">
-                                            <a href="delete.do?ids=${bean.id}&queryNodeId=${queryNodeId}&queryNodeType=${queryNodeType}&queryInfoPermType=${queryInfoPermType}&queryStatus=${queryStatus}&${searchstring}" onclick="return confirmDelete();" class="ls-opt"><s:message code="completelyDelete"/></a>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <span class="ls-opt-disabled"><s:message code="completelyDelete"/></span>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </shiro:hasPermission>
-                            </td>
+
                             <td><c:out value="${bean.id}"/></td>
                             <td>
                                 <div><a href="view.do?id=${bean.id}&queryNodeId=${queryNodeId}&queryNodeType=${queryNodeType}&queryInfoPermType=${queryInfoPermType}&queryStatus=${queryStatus}&position=${pagedList.number*pagedList.size+status.index}&${searchstring}" title="<c:out value='${bean.title}'/>"><c:out
@@ -373,6 +347,34 @@
                                         </c:otherwise>
                                     </c:choose>
                                 </div>
+                            </td>
+                            <td align="center">
+                                <shiro:hasPermission name="core:info:copy">
+                                    <a id="copy_opt_${bean.id}" href="create.do?id=${bean.id}&queryNodeId=${queryNodeId}&queryNodeType=${queryNodeType}&queryInfoPermType=${queryInfoPermType}&queryStatus=${queryStatus}&${searchstring}" class="ls-opt"><s:message code="copy"/></a>
+                                </shiro:hasPermission>
+                                <shiro:hasPermission name="core:info:edit">
+                                    <a id="edit_opt_${bean.id}" href="edit.do?id=${bean.id}&queryNodeId=${queryNodeId}&queryNodeType=${queryNodeType}&queryInfoPermType=${queryInfoPermType}&queryStatus=${queryStatus}&position=${pagedList.number*pagedList.size+status.index}&${searchstring}" class="ls-opt"><s:message code="edit"/></a>
+                                </shiro:hasPermission>
+                                <shiro:hasPermission name="core:info:logic_delete">
+                                    <c:choose>
+                                        <c:when test="${bean.auditPerm}">
+                                            <a href="logic_delete.do?ids=${bean.id}&queryNodeId=${queryNodeId}&queryNodeType=${queryNodeType}&queryInfoPermType=${queryInfoPermType}&queryStatus=${queryStatus}&${searchstring}" onclick="return confirmDelete();" class="ls-opt"><s:message code="delete"/></a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span class="disabled"><s:message code="delete"/></span>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </shiro:hasPermission>
+                                <shiro:hasPermission name="core:info:delete">
+                                    <c:choose>
+                                        <c:when test="${bean.auditPerm}">
+                                            <a href="delete.do?ids=${bean.id}&queryNodeId=${queryNodeId}&queryNodeType=${queryNodeType}&queryInfoPermType=${queryInfoPermType}&queryStatus=${queryStatus}&${searchstring}" onclick="return confirmDelete();" class="ls-opt"><s:message code="completelyDelete"/></a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span class="ls-opt-disabled"><s:message code="completelyDelete"/></span>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </shiro:hasPermission>
                             </td>
                         </tr>
                     </c:forEach>

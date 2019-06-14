@@ -623,3 +623,38 @@
   ops:
     - view@core:operation_log:view
     - delete@core:operation_log:delete
+
+
+
+1000:
+  name: navigation.lawservice
+  icon: fa fa-cog
+  perms: nav_system
+1000-100:
+  name: legaladvice.management
+  url: ext/guestbook/list.do
+  perms: ext:guestbook:list
+  ops:
+    - create@ext:legaladvice:create
+    - answer@ext:legaladvice:answer
+    - recommend@ext:legaladvice:recommend
+    - pass@ext:legaladvice:pass
+    - reject@ext:legaladvice:reject
+    - edit@ext:legaladvice:edit
+    - save@ext:legaladvice:save
+    - update@ext:legaladvice:update
+    - delete@ext:legaladvice:delete
+1000-200:
+  name: legalaid.management
+  url: ext/guestbook/list.do
+  perms: ext:guestbook:list
+  ops:
+    - create@ext:legalaid:create
+    - answer@ext:legalaid:answer
+    - recommend@ext:legalaid:recommend
+    - pass@ext:legalaid:pass
+    - reject@ext:legalaid:reject
+    - edit@ext:legalaid:edit
+    - save@ext:legalaid:save
+    - update@ext:legalaid:update
+    - delete@ext:legalaid:delete

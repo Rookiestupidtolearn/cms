@@ -60,6 +60,7 @@
     <bean id="CmsGuestbookTypeList" class="com.jspxcms.ext.web.directive.GuestbookTypeListDirective"/>
     <bean id="CmsGuestbookList" class="com.jspxcms.ext.web.directive.GuestbookListDirective"/>
     <bean id="CmsGuestbookPage" class="com.jspxcms.ext.web.directive.GuestbookPageDirective"/>
+    <bean id="CmsMyList" class="com.jspxcms.ext.web.directive.MyListDirective"/>
 
     <bean id="CmsFriendlinkTypeList" class="com.jspxcms.ext.web.directive.FriendlinkTypeListDirective"/>
     <bean id="CmsFriendlinkList" class="com.jspxcms.ext.web.directive.FriendlinkListDirective"/>
